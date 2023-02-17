@@ -143,6 +143,10 @@
     footer {
       font-size: 12px;
     }
+
+    #receipt {
+      width: 384px;
+    }
   </style>
 </head>
 <body>
@@ -230,14 +234,13 @@
       Jimp.read(canvas.toDataURL('image/png')).then(function (image) {
         image
           .greyscale() // convert to greyscale
-          .contrast(1) // adjust contrast
-          .invert()    // invert the image
           .scale(1.0)  // scale to full size
+          .resize(384, 900)
           .getBase64(Jimp.MIME_PNG, function (err, buffer) {
             if (err) throw err;
 
             console.log(buffer)
-            AndroidInterface.printImage('Printing', buffer);
+            // AndroidInterface.printImage('Printing', buffer);
           });
       });
       // AndroidInterface.printImage('Printing', imageData);
