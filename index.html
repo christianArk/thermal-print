@@ -61,16 +61,7 @@
       text-align: center;
     }
   
-    .bill-details td {
-      font-size: 12px;
-    }
-  
-    .receipt {
-      font-size: medium;
-    }
-  
     .items .heading {
-      font-size: 12.5px;
       text-transform: uppercase;
       border-top: 1px solid black;
       margin-bottom: 4px;
@@ -88,7 +79,6 @@
     }
   
     .items td {
-      font-size: 12px;
       text-align: right;
       vertical-align: bottom;
     }
@@ -104,7 +94,6 @@
     }
   
     .total {
-      font-size: 13px;
       border-top: 1px dashed black !important;
       border-bottom: 1px dashed black !important;
     }
@@ -140,12 +129,10 @@
     }
   
     section,
-    footer {
-      font-size: 12px;
-    }
 
     #receipt {
       width: 384px;
+      font-size: 9px !important;
     }
   </style>
 </head>
@@ -239,7 +226,7 @@
             if (err) throw err;
 
             console.log(buffer)
-            AndroidInterface.printImage('Printing', buffer);
+            // AndroidInterface.printImage('Printing', buffer);
           });
       });
       // AndroidInterface.printImage('Printing', imageData);
