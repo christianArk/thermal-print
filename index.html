@@ -225,7 +225,8 @@
 <script type="text/javascript" src="./jimp.min.js"></script>
 <script>
   function print() {
-    const element = document.getElementById('receipt').innerHTML
+    const element = document.getElementById('receipt')
+    console.log(element)
     AndroidInterface.printImage('Printing', element);
     // html2canvas(document.body).then(function (canvas) {
     //   Jimp.read(canvas.toDataURL('image/png')).then(function (image) {
