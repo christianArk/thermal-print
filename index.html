@@ -222,14 +222,23 @@
 </body>
 
 <script type="text/javascript" src="./html2canvas.js"></script>
+<script type="text/javascript" src="./jimp.min.js"></script>
 <script>
   function print() {
     const element = document.getElementById('receipt')
     html2canvas(document.body).then(function (canvas) {
-      createImageBitmap(canvas).then(function (res) {
-        console.log(res)
-        AndroidInterface.printImage('Printing', res);
-      })
+      Jimp.read(canvas.toDataURL('image/png')).then(function (image) {
+        image
+          .greyscale() // convert to greyscale
+          .contrast(1) // adjust contrast
+          .invert()    // invert the image
+          .scale(1.0)  // scale to full size
+          .getBuffer(Jimp.MIME_PNG, function (err, buffer) {
+            if (err) throw err;
+
+            console.log(buffer)
+          });
+      });
       // AndroidInterface.printImage('Printing', imageData);
     });
   }
