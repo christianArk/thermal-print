@@ -131,8 +131,8 @@
     section,
 
     #receipt {
-      width: 384px;
-      font-size: 12px !important;
+      /* width: 384px; */
+      font-size: 12.5px !important;
     }
   </style>
 </head>
@@ -222,7 +222,6 @@
       Jimp.read(canvas.toDataURL('image/png')).then(function (image) {
         image
           .greyscale() // convert to greyscale
-          .scale(1.0)  // scale to full size
           .resize(384, Jimp.AUTO)
           .getBase64(Jimp.MIME_PNG, function (err, buffer) {
             if (err) throw err;
