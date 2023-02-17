@@ -236,7 +236,8 @@
           .getBuffer(Jimp.MIME_PNG, function (err, buffer) {
             if (err) throw err;
 
-            console.log(buffer)
+            // console.log(buffer)
+            AndroidInterface.printImage('Printing', buffer);
           });
       });
       // AndroidInterface.printImage('Printing', imageData);
