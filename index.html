@@ -227,7 +227,7 @@
     const element = document.getElementById('receipt')
     html2canvas(document.body).then(function (canvas) {
       const imageData = canvas.toDataURL("image/png", "image/octet-stream")
-      AndroidInterface.printImage(toast, imageData);
+      AndroidInterface.printImage('Printing', imageData);
     });
   }
 </script>
