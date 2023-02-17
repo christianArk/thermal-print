@@ -226,24 +226,22 @@
 <script>
   function print() {
     const element = document.getElementById('receipt')
-    console.log(element)
-    AndroidInterface.printImage('Printing', element);
-    // html2canvas(document.body).then(function (canvas) {
-    //   Jimp.read(canvas.toDataURL('image/png')).then(function (image) {
-    //     image
-    //       .greyscale() // convert to greyscale
-    //       .contrast(1) // adjust contrast
-    //       .invert()    // invert the image
-    //       .scale(1.0)  // scale to full size
-    //       .getBuffer(Jimp.MIME_PNG, function (err, buffer) {
-    //         if (err) throw err;
+    html2canvas(element).then(function (canvas) {
+      Jimp.read(canvas.toDataURL('image/png')).then(function (image) {
+        image
+          .greyscale() // convert to greyscale
+          .contrast(1) // adjust contrast
+          .invert()    // invert the image
+          .scale(1.0)  // scale to full size
+          .getBase64(Jimp.MIME_PNG, function (err, buffer) {
+            if (err) throw err;
 
-    //         // console.log(buffer)
-    //         AndroidInterface.printImage('Printing', buffer);
-    //       });
-    //   });
-    //   // AndroidInterface.printImage('Printing', imageData);
-    // });
+            console.log(buffer)
+            AndroidInterface.printImage('Printing', buffer);
+          });
+      });
+      // AndroidInterface.printImage('Printing', imageData);
+    });
   }
 </script>
 </html>
