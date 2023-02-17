@@ -132,7 +132,7 @@
 
     #receipt {
       width: 384px;
-      font-size: 12.5px !important;
+      font-size: 16px !important;
     }
   </style>
 </head>
@@ -143,7 +143,7 @@
       <tbody>
         <tr>
           <td>Date : <span>1</span></td>
-          <td align="right">Time : <span>23</span></td>
+          <td align="right">Time : <span>25</span></td>
         </tr>
         <tr>
           <td>Table #: <span>3</span></td>
@@ -222,7 +222,7 @@
       Jimp.read(canvas.toDataURL('image/png')).then(function (image) {
         image
           .greyscale() // convert to greyscale
-          .scale(1.5)  // scale to full size
+          .scale(1)  // scale to full size
           .resize(384, Jimp.AUTO)
           .getBase64(Jimp.MIME_PNG, function (err, buffer) {
             if (err) throw err;
