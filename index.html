@@ -235,7 +235,6 @@
         image
           .greyscale() // convert to greyscale
           .scale(1.0)  // scale to full size
-          .resize(384, 900)
           .getBase64(Jimp.MIME_PNG, function (err, buffer) {
             if (err) throw err;
 
