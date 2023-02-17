@@ -138,15 +138,16 @@
 </head>
 <body>
   <div id="receipt">
+    <img src="./fortunebetprintlogo.png" width="150px" />
     <table class="bill-details">
       <tbody>
         <tr>
           <td>Date : <span>1</span></td>
-          <td>Time : <span>2</span></td>
+          <td align="right">Time : <span>2</span></td>
         </tr>
         <tr>
           <td>Table #: <span>3</span></td>
-          <td>Bill # : <span>4</span></td>
+          <td align="right">Bill # : <span>4</span></td>
         </tr>
         <tr>
           <th class="center-align" colspan="2"><span class="receipt">Original Receipt</span></th>
@@ -222,6 +223,7 @@
         image
           .greyscale() // convert to greyscale
           .scale(1.0)  // scale to full size
+          .resize(384, Jimp.AUTO)
           .getBase64(Jimp.MIME_PNG, function (err, buffer) {
             if (err) throw err;
 
